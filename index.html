@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Santust — Offensive Security. Red team student: Active Directory attacks, web exploitation, CTFs." />
+<meta name="theme-color" content="#0c0908" />
+<meta property="og:title" content="Santust — Offensive Security" />
+<meta property="og:description" content="Red team student · Active Directory · web exploitation · CTFs" />
+<meta property="og:type" content="website" />
+<title>Santust // Offensive Security</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0908'/%3E%3Cg fill='none' stroke='%23e04628' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 2V30'/%3E%3Cpath d='M16 6L25.2 11L16 16L6.8 11Z'/%3E%3Cpath d='M16 16L25.2 21L16 26L6.8 21Z'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<canvas id="ember-canvas"></canvas>
+<canvas id="brand-cursor"></canvas>
+
+<!-- ============ BRAND MARK (shared symbol) ============ -->
+<svg class="brand-defs" aria-hidden="true" focusable="false">
+  <symbol id="brand-mark" viewBox="0 0 220 300">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M110 10 V290"/>
+      <path d="M110 50 L202 100 L110 150 L18 100 Z"/>
+      <path d="M110 150 L202 200 L110 250 L18 200 Z"/>
+      <path d="M110 36 L82 14"/>
+      <path d="M110 36 L138 14"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ BOOT ============ -->
+<div id="boot">
+  <canvas id="boot-canvas"></canvas>
+  <div id="boot-inner">
+    <svg id="boot-sigil" viewBox="0 0 240 300" fill="none" aria-hidden="true">
+      <defs>
+        <filter id="bg-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle class="sig-ring-a" cx="120" cy="150" r="112" stroke="#8b0a0a" stroke-width="3" stroke-dasharray="6 18" opacity="0.8"/>
+      <circle cx="120" cy="150" r="96" stroke="#4a3d2e" stroke-width="2.6" opacity="0.75"/>
+      <use class="sig-brand" href="#brand-mark" x="46.3" y="49.5" width="147.4" height="201" filter="url(#bg-glow)"/>
+      <circle cx="120" cy="150" r="4" fill="#ff9c5c"/>
+    </svg>
+    <div id="boot-word"></div>
+    <div id="boot-tag">The Mark of the Operator</div>
+    <div id="boot-lines"></div>
+    <div id="boot-bar-wrap"><div id="boot-bar"><i></i></div><div id="boot-pct">0%</div></div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-brand">
+    <svg viewBox="0 0 220 300" fill="none" aria-hidden="true"><use href="#brand-mark"/></svg>
+    <span>SANTUST</span>
+  </div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#timeline">Path</a>
+    <a href="#projects">Projects</a>
+    <a href="#writeups">Writeups</a>
+    <a href="#certs">Certs</a>
+  </div>
+  <a href="#contact" class="nav-cta">Contact</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="status-pill reveal"><span class="dot"></span>CYBERSECURITY · AI & AUTOMATION</div>
+        <h1 class="name reveal">Santust Singh<span class="brand-dot">.</span></h1>
+        <div class="role-line reveal">whoami</div>
+        <div class="role-title reveal">Offensive Security · Red Team</div>
+        <p class="bio reveal">
+          I'm a student going deep on offensive security — <strong>Active Directory
+          attacks</strong>, <strong>web exploitation</strong>, and the tooling to do
+          both repeatably. Currently pursuing a BCA in Cloud &amp; Security alongside
+          a Diploma in Cybersecurity, learning mostly by building: a self-hosted
+          VMware lab, TryHackMe rooms, and CTFs I work end-to-end rather than just
+          flag-grab.
+        </p>
+        <div class="cta-row reveal">
+          <a href="#projects" class="btn-primary">View Projects →</a>
+          <a href="#contact" class="btn-secondary">Get in touch</a>
+          <a href="https://github.com/Santust" class="link-plain">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-sigil-wrap reveal" aria-hidden="true">
+        <svg viewBox="0 0 300 300" fill="none">
+          <defs>
+            <filter id="hg" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="3.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <circle class="sig-ring-a" cx="150" cy="150" r="134" stroke="#8b0a0a" stroke-width="1" stroke-dasharray="4 14" opacity="0.5"/>
+          <circle cx="150" cy="150" r="116" stroke="#4a3d2e" stroke-width="1" opacity="0.45"/>
+          <circle class="sig-ring-b" cx="150" cy="150" r="98" stroke="#8b0a0a" stroke-width="0.9" stroke-dasharray="1 10" opacity="0.5"/>
+          <use class="sig-brand" href="#brand-mark" x="76.3" y="49.5" width="147.4" height="201" filter="url(#hg)"/>
+          <circle cx="150" cy="150" r="6" fill="#ff9c5c"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card term-card--1">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="cmd">nmap -sV -p- 192.168.1.100</div>
+    <div class="out">scanning 65535 ports...</div>
+    <div class="out hit">3 services enumerated</div>
+  </div>
+  <div class="term-card term-card--2">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="cmd">nuclei -u target -severity high</div>
+    <div class="out">running templates...</div>
+    <div class="out hit">2 findings · triaging</div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 · About</div>
+    <h2 class="section-title reveal">A little about me.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I go deep on offensive security rather than just collecting flags — understanding <strong>why</strong> an attack works well enough to reproduce it reliably and explain it clearly.</p>
+        <p>Most of my hands-on hours come from a self-built VMware lab, TryHackMe rooms, and CTFs I write up the way a real engagement report would be: summary, impact, reproduction steps, remediation — not just "how I got the flag."</p>
+        <p>Currently pursuing a BCA in Cloud &amp; Security alongside a Diploma in Cybersecurity, and working toward a career in red team operations.</p>
+      </div>
+      <a class="thm-panel reveal" href="https://tryhackme.com/p/StoicDaemon" target="_blank" rel="noopener">
+        <div class="thm-panel-head">TryHackMe · live profile</div>
+        <img id="thm-badge" src="https://tryhackme-badges.s3.amazonaws.com/StoicDaemon.png"
+             alt="TryHackMe profile badge" loading="lazy" width="330" height="60">
+        <span class="thm-panel-cta">View full profile ↗</span>
+      </a>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat"><div class="stat-num"><span class="hl">370</span></div><div class="stat-label">THM rooms cleared</div></div>
+      <div class="stat"><div class="stat-num"><span class="hl">45</span></div><div class="stat-label">Badges earned</div></div>
+      <div class="stat"><div class="stat-num">#<span class="hl">4457</span></div><div class="stat-label">Global rank</div></div>
+      <div class="stat"><div class="stat-num">Top <span class="hl">1%</span></div><div class="stat-label">Worldwide</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 · Skills</div>
+    <h2 class="section-title reveal">What I actually do</h2>
+    <p class="section-sub reveal">Grouped by how I actually use them — the note beside each is the tool or technique I reach for.</p>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="icon">[ 01 ]</div><h3>Active Directory</h3>
+        <ul>
+          <li>Kerberoasting <span>Rubeus / GetUserSPNs</span></li>
+          <li>AS-REP roasting <span>no-preauth accounts</span></li>
+          <li>BloodHound <span>attack paths</span></li>
+          <li>NTLM relay <span>ntlmrelayx</span></li>
+          <li>DCSync &amp; Pass-the-Hash <span>impacket</span></li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">[ 02 ]</div><h3>Web Exploitation</h3>
+        <ul>
+          <li>SQL injection <span>manual + sqlmap</span></li>
+          <li>XSS <span>stored / reflected</span></li>
+          <li>SSRF <span>cloud metadata</span></li>
+          <li>IDOR &amp; auth bypass <span>logic flaws</span></li>
+          <li>Burp Suite <span>daily driver</span></li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">[ 03 ]</div><h3>Recon &amp; Enumeration</h3>
+        <ul>
+          <li>nmap <span>service / version</span></li>
+          <li>ffuf <span>content discovery</span></li>
+          <li>nuclei <span>templated scanning</span></li>
+          <li>subfinder / amass <span>subdomains</span></li>
+          <li>OSINT <span>external footprint</span></li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">[ 04 ]</div><h3>Privilege Escalation</h3>
+        <ul>
+          <li>Windows privesc <span>winPEAS, tokens</span></li>
+          <li>Linux privesc <span>SUID, sudo, cron</span></li>
+          <li>Pivoting <span>chisel / SSH tunnels</span></li>
+          <li>mimikatz <span>credential dumping</span></li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">[ 05 ]</div><h3>Tooling &amp; Scripting</h3>
+        <ul>
+          <li>Python <span>tooling + automation</span></li>
+          <li>Bash <span>glue + parsing</span></li>
+          <li>PowerShell <span>Windows tradecraft</span></li>
+          <li>C# <span>offensive .NET tooling</span></li>
+          <li>Git <span>version control</span></li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">[ 06 ]</div><h3>Lab &amp; Infrastructure</h3>
+        <ul>
+          <li>VMware / ESXi <span>self-hosted lab</span></li>
+          <li>Windows Server <span>AD DS, GPO</span></li>
+          <li>Kali Linux <span>primary attack box</span></li>
+          <li>Networking <span>VLANs, routing</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 · The Path</div>
+    <h2 class="section-title reveal">How I got here</h2>
+    <p class="section-sub reveal">In order — each stage built on the last.</p>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-num">01</div>
+        <h4>The spark, with nowhere to put it</h4>
+        <p>I wanted this at fourteen. I read everything I could find on ethical hacking and red teaming and had no way to act on a word of it — no resources, no guidance, no idea what a path into the field even looked like. So it stayed something I read about.</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-num">02</div>
+        <h4>The detour</h4>
+        <p>I finished high school and took a diploma in mechanical engineering — the option in front of me, not the one I wanted. I spent it on a subject I had no interest in and came out the other side assuming I'd missed my window.</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-num">03</div>
+        <h4>A way back in</h4>
+        <p>Then I found an institute near me teaching cybersecurity and took the chance — a BCA in Cloud &amp; Security alongside a Diploma in Cybersecurity. I gave the first three or four months entirely to fundamentals: Linux, networking, Python, before touching anything offensive. TryHackMe came next, to push further on my own time.</p>
+        <div class="t-tag">January 2026</div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-num">04</div>
+        <h4>It clicked</h4>
+        <p>CEH is where it connected. The theory finally had somewhere to attach and everything I'd been drilling made sense at once — after that, studying stopped feeling like studying, and I wanted all of it. 370 rooms, a self-hosted VMware lab with a Windows domain I could break and rebuild, and a writeup for every box worth one.</p>
+        <div class="t-tag">Top 1% · TryHackMe</div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-num">05</div>
+        <h4>Now</h4>
+        <p>Preparing for OSCP, and going deep on Active Directory and web exploitation — understanding an attack well enough to reproduce it cold, not just clear the room. The target is red team operations.</p>
+        <div class="t-tag">OSCP · in progress</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 · Projects</div>
+    <h2 class="section-title reveal">Things I've built</h2>
+    <p class="section-sub reveal">Add your tools, labs, and writeups here.</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal"><div class="proj-head"><h3>Will be updated later</h3></div><p>Project details coming soon.</p></div>
+      <div class="proj-card reveal"><div class="proj-head"><h3>Will be updated later</h3></div><p>Project details coming soon.</p></div>
+      <div class="proj-card reveal"><div class="proj-head"><h3>Will be updated later</h3></div><p>Project details coming soon.</p></div>
+      <div class="proj-card reveal"><div class="proj-head"><h3>Will be updated later</h3></div><p>Project details coming soon.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WRITEUPS ============ -->
+<section id="writeups">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 · Writeups</div>
+    <h2 class="section-title reveal">Field notes</h2>
+    <p class="section-sub reveal">Auto-loaded from the <code>/writeups</code> folder in this repo — drop a markdown file in and push. Nothing else to wire up.</p>
+    <div id="wu-grid" class="wu-grid">
+      <div class="wu-loading">loading writeups…</div>
+    </div>
+  </div>
+</section>
+
+<div id="wu-modal">
+  <div class="wu-modal-box">
+    <button class="wu-modal-close" id="wu-modal-close">close [x]</button>
+    <div id="wu-modal-title"></div>
+    <div id="wu-modal-date"></div>
+    <div id="wu-content" class="wu-content"></div>
+  </div>
+</div>
+
+<!-- ============ CERTS ============ -->
+<section id="certs">
+  <div class="wrap">
+    <div class="eyebrow reveal">06 · Certs &amp; Education</div>
+    <h2 class="section-title reveal">Credentials</h2>
+    <div class="certs-list reveal">
+      <div class="cert-row">
+        <div><div class="cert-name">Junior Penetration Tester — Learning Path</div><div class="cert-org">TryHackMe</div></div>
+        <div class="cert-status done">Completed</div>
+      </div>
+      <div class="cert-row">
+        <div><div class="cert-name">Hacker Holidays</div><div class="cert-org">TryHackMe</div></div>
+        <div class="cert-status done">Completed</div>
+      </div>
+      <div class="cert-row">
+        <div><div class="cert-name">BCA — Cloud &amp; Security</div><div class="cert-org">—</div></div>
+        <div class="cert-status">In progress</div>
+      </div>
+      <div class="cert-row">
+        <div><div class="cert-name">OSCP — Offensive Security Certified Professional</div><div class="cert-org">Offensive Security</div></div>
+        <div class="cert-status">In progress</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <div class="eyebrow">07 · Contact</div>
+      <h2>Let's talk.</h2>
+      <p class="section-sub">Short line about what you're open to — internships, CTF teams, collaboration, etc.</p>
+      <div class="contact-links">
+        <a href="mailto:your-email@example.com" class="btn-primary">Email me →</a>
+        <a href="https://github.com/Santust" class="btn-secondary">GitHub</a>
+        <a href="https://tryhackme.com/p/StoicDaemon" class="btn-secondary">TryHackMe</a>
+        <button type="button" class="btn-secondary" id="discord-btn" data-handle="stoicdaemon">Discord · stoicdaemon</button>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-mark">
+        <svg viewBox="0 0 220 300" fill="none" aria-hidden="true"><use href="#brand-mark"/></svg>
+        <span>© 2026 Santust</span>
+      </div>
+      <span>Built with HTML / CSS / JS — no framework</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/atmosphere.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

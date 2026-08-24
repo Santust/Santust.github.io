@@ -20,7 +20,7 @@ First i decided to set up a environment of my target to make things easier.
 nmap -sV -sC -p- $TARGET --min-rate=1000
 ```
 
-![what this screenshot shows](images/nmap.png)
+![nmap](images/Razorblack/nmap.png) 
 
 Target_Name: RAZ0RBLACK
 |   NetBIOS_Domain_Name: RAZ0RBLACK
